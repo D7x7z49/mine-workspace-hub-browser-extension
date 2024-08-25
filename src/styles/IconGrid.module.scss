@@ -1,0 +1,39 @@
+/* IconGrid.module.css */
+.iconGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 16px;
+    padding: 16px;
+}
+
+.iconTile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 16px;
+    transition: transform 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.iconTile:hover {
+    transform: translateY(-5px);
+}
+
+.iconTile a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+}
+
+.title {
+    font-size: 14px;
+    font-weight: 500;
+}

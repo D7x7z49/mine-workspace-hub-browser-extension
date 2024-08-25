@@ -1,0 +1,8 @@
+{
+  "extends": "@parcel/config-webextension",
+  "packagers": {
+    "*.html": "@parcel/packager-html",
+    "*.js": "@parcel/packager-js",
+    "*.css": "@parcel/packager-css"
+  }
+}
