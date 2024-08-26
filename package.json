@@ -14,12 +14,18 @@
     "@types/chrome": "^0.0.270",
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
+    "@types/react-router-dom": "^5.3.3",
     "parcel": "^2.12.0",
     "process": "^0.11.10",
     "typescript": "^5.5.4"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "framer-motion": "^11.3.30",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.1"
   }
 }
