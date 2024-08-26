@@ -1,5 +1,5 @@
 import React from 'react';
-import JumpButton from '@components/button/JumpButton';
+import JumpButton from '@workspacehub/components/button/JumpButton';
 
 
 const TestComponent: React.FC = () => {
