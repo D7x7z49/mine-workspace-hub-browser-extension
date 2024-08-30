@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Link as ChakraLink, LinkProps } from '@chakra-ui/react'
 
 
