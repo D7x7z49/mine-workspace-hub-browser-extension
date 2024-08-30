@@ -8,9 +8,18 @@ const Home: React.FC = () => {
 
     return (
         <div>
-            <ChakraLink as={ReactRouterLink} to='/'>
-                Home
-            </ChakraLink>  
+            <ul>
+                <li>
+                    <ChakraLink as={ReactRouterLink} to='/test/main'>
+                        Core Test
+                    </ChakraLink>
+                </li>
+                <li>
+                    <ChakraLink as={ReactRouterLink} to='/test/TestLayout'>
+                        TestLayout
+                    </ChakraLink>
+                </li>
+            </ul>
         </div>
     );
 };
