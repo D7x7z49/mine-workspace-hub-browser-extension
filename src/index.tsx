@@ -5,18 +5,16 @@ import AppRoutes from '@workspacehub/pages/AppRoutes';
 import { defaultTheme } from '@workspacehub/themes/theme';
 
 const Root: React.FC = () => {
-
-    return (
-        <ChakraProvider>
-            <AppRoutes />
-        </ChakraProvider>
-    );
+  return (
+    <ChakraProvider>
+      <AppRoutes />
+    </ChakraProvider>
+  );
 };
 
-
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-    <React.StrictMode>
-        <ColorModeScript initialColorMode={defaultTheme.config.initialColorMode} />
-        <Root />
-    </React.StrictMode>
+  <React.StrictMode>
+    <ColorModeScript initialColorMode={defaultTheme.config.initialColorMode} />
+    <Root />
+  </React.StrictMode>,
 );
