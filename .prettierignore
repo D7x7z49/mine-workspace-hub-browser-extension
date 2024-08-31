@@ -2,6 +2,7 @@
 node_modules/
 
 # Ignore build artifacts and temporary files
+archive/
 dist/
 build/
 out/
@@ -9,6 +10,7 @@ tmp/
 temp/
 
 # Ignore IDE/editor configuration files
+.parcel-cache/
 .vscode/
 .idea/
 *.suo
