@@ -1,33 +1,37 @@
 {
-    "compilerOptions": {
-        "target": "ESNext",
-        "lib": [
-            "DOM",
-            "DOM.Iterable",
-            "ESNext"
-        ],
-        "jsx": "react-jsx",
-        "module": "ESNext",
-        "moduleResolution": "node",
-        "strict": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
-        "resolveJsonModule": true,
-        "allowSyntheticDefaultImports": true,
-        "baseUrl": ".",
-        "paths": {
-          "@workspacehub/*": [
-            "src/*"
-          ]
-        }
-    },
-    "include": [
-        "src/**/*"
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
     ],
-    "exclude": [
-      "node_modules",
-      "dist",
-      "archive",
-    ]
+    "types": [
+      "@testing-library/jest-dom/jest-globals"
+    ],
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@workspacehub/*": [
+        "src/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "globals.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "archive",
+  ]
 }
