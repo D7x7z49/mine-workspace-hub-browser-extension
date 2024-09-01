@@ -8,8 +8,13 @@ export default {
         }],
     },
     testMatch: ['**/?(*.)+(spec|test).+(ts|tsx|js)'],
-    setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+    setupFilesAfterEnv: ['<rootDir>/tests/jest.setup.ts'],
     moduleNameMapper: {
         '^@workspacehub/(.*)$': '<rootDir>/src/$1',
-      },
+    },
+    testPathIgnorePatterns: [
+        '<rootDir>/archive/',
+        '<rootDir>/node_modules/',
+        '<rootDir>/dist/',
+    ],
 };
