@@ -6,9 +6,9 @@
       "DOM.Iterable",
       "ESNext"
     ],
-    "types": [
-      "@testing-library/jest-dom/jest-globals"
-    ],
+    // "types": [
+    //   "@testing-library/jest-dom/jest-globals"
+    // ],
     "jsx": "react-jsx",
     "module": "ESNext",
     "moduleResolution": "node",
@@ -27,7 +27,8 @@
   },
   "include": [
     "src/**/*",
-    "globals.d.ts"
+    "globals.d.ts",
+    "tests"
   ],
   "exclude": [
     "node_modules",

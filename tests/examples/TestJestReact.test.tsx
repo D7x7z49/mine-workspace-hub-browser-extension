@@ -3,8 +3,6 @@ import React from 'react';
 import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 
-// import '@testing-library/jest-dom/jest-globals';
-
 const TestJestReact: React.FC = () => {
   return (
     <React.StrictMode>
