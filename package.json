@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "type": "module",
   "author": "D7x7z49",
-  "license": "MIT",
+  "license": "GPL-3.0-or-later",
   "scripts": {
     "dev": "parcel watch src/manifest.json --host localhost",
     "build": "parcel build src/manifest.json",
