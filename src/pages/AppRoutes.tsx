@@ -1,16 +1,28 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Home from '@workspacehub/pages/Home';
-import TestPage from '@workspacehub/pages/tests/TestPage';
-import TestLayout from '@workspacehub/pages/tests/TestLayout';
+import Layout from '@workspacehub/pages/Layout';
 
-const AppRoutes = () => (
-  <Router>
-    <Routes>
-      <Route path="index.html" element={<Home />} />
-      <Route path="/test/main" element={<TestPage />} />
-      <Route path="/test/TestLayout" element={<TestLayout />} />
-    </Routes>
-  </Router>
-);
+const routes = [
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        path: 'index.html',
+        element: <Home />,
+      },
+      {
+        path: 'home',
+        element: <Home />,
+      },
+    ],
+  },
+];
+
+const router = createBrowserRouter(routes);
+
+const AppRoutes = () => <RouterProvider router={router} />;
+
+export { routes };
 
 export default AppRoutes;

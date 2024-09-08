@@ -1,6 +1,8 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
-import { useBoolean, Grid, GridItem } from '@chakra-ui/react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { Grid, GridItem, useBoolean } from '@chakra-ui/react';
 import { throttle } from 'lodash';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import LightSwitchButton from '@workspacehub/components/button/LightSwitchButton';
 
 const TestLayout: React.FC = () => {
   // State to manage the width of the navigation pane
@@ -88,36 +90,28 @@ const TestLayout: React.FC = () => {
   return (
     <Grid
       templateAreas={`
-            "header header header"
-            "nav resize main"
-            "footer footer footer"
-          `}
+          "header header header"
+          "nav resize main"
+          "footer footer footer"
+        `}
       gridTemplateRows="50px 1fr 30px"
       gridTemplateColumns={`${navWidth}px 5px 1fr`}
       h="100vh"
       gap="1"
-      color="blackAlpha.700"
       fontWeight="bold">
-      <GridItem bg="orange.300" area="header">
-        Header
-      </GridItem>
-      <GridItem ref={navRef} bg="pink.300" area="nav">
+      <GridItem area="header">Header</GridItem>
+      <GridItem ref={navRef} area="nav">
         Nav
       </GridItem>
       <GridItem
         ref={resizeRef}
-        bg="tomato"
         area="resize"
         cursor="col-resize"
         onMouseDown={startResizing} // Start resizing on mouse down directly on the resize area
         // 鼠标按下直接在调整大小区域上开始调整大小
       />
-      <GridItem bg="green.300" area="main">
-        Main
-      </GridItem>
-      <GridItem bg="blue.300" area="footer">
-        Footer
-      </GridItem>
+      <GridItem area="main">Main</GridItem>
+      <GridItem area="footer">Footer</GridItem>
     </Grid>
   );
 };
