@@ -40,4 +40,5 @@ coverage/
 
 # Other
 /archive/
+/docs/
 /.npmrc
