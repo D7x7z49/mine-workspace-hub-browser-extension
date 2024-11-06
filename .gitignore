@@ -1,6 +1,44 @@
+# Node.js dependencies
 /node_modules/
+
+# Build outputs
 /dist/
-/docs/blueprint
-/old/
+build/
+
+# Parcel cache and log files
+/.parcel-cache/
+.cache/
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# IDE-specific files
+.idea/
+.vscode/
+*.swp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# WebExtension-specific
+# Exclude files related to Chrome, Firefox or other WebExtensions during development
+**/*.crx
+**/*.xpi
+
+# Coverage reports
+coverage/
+
+# TypeScript build artifacts
+*.tsbuildinfo
+
+# Miscellaneous
+*.bak
+*.tmp
+
+# Other
+/archive/
+/docs/
 /.npmrc
-/.parcel-cache
