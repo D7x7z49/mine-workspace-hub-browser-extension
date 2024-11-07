@@ -2,6 +2,7 @@
 /node_modules/
 
 # Yarn
+.yarnrc.yml
 .pnp.*
 .yarn/*
 !.yarn/patches
