@@ -11,5 +11,5 @@ export default {
   bracketSpacing: true,
   bracketSameLine: true,
   arrowParens: 'always',
-  embeddedLanguageFormatting: 'auto'
+  embeddedLanguageFormatting: 'auto',
 };
