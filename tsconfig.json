@@ -6,7 +6,7 @@
 
     /* Language and Environment */
     "target": "ESNext",
-    "lib": ["DOM", "ESNext"],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "jsx": "react-jsx",
     "module": "ESNext",
     "moduleResolution": "Node",
@@ -28,6 +28,6 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "declarations.d.ts"],
   "exclude": ["node_modules", "dist", "archive"]
 }
