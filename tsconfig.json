@@ -1,8 +1,12 @@
 {
+  "ts-node": {
+    "esm": true
+  },
   "compilerOptions": {
     /* TypeScript Project Options */
     "incremental": true,
     "tsBuildInfoFile": "./.tsbuildinfo",
+    "types": ["node"],
 
     /* Language and Environment */
     "target": "ESNext",
@@ -11,6 +15,10 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@workspacehub/*": ["src/*"]
+    },
 
     /* JavaScript Interoperability */
     "esModuleInterop": true,
@@ -28,6 +36,6 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*", "declarations.d.ts"],
+  "include": ["declarations.d.ts", "src/**/*", "tests/**/*"],
   "exclude": ["node_modules", "dist", "archive"]
 }

@@ -8,6 +8,7 @@ import globals from 'globals';
 import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import pluginReact from 'eslint-plugin-react';
+import jest from 'eslint-plugin-jest';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -23,6 +24,7 @@ export default [
     languageOptions: {
       globals: {
         ...globals.browser,
+        ...globals.jest,
       },
     },
   },
@@ -36,5 +38,6 @@ export default [
       },
     },
   },
+  jest.configs['flat/recommended'],
   eslintConfigPrettier,
 ];
