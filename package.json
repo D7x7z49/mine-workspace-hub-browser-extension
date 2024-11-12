@@ -4,11 +4,21 @@
   "packageManager": "yarn@4.5.1",
   "scripts": {
     "prepare": "husky",
+    "type-check": "tsc --noEmit",
+    "clean": "parcel clean",
     "dev": "parcel watch src/manifest.json --host localhost",
     "build": "parcel build src/manifest.json",
+    "build:analyze": "parcel build src/manifest.json --analyze",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "format": "yarn lint:fix && yarn prettier:fix",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:clear-cache": "jest --clearCache",
+    "test:update-snapshots": "jest --updateSnapshot"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.2",
