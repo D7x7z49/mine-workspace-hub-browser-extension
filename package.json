@@ -5,6 +5,7 @@
   "scripts": {
     "prepare": "husky",
     "type-check": "tsc --noEmit",
+    "commit": "cz",
     "clean": "parcel clean",
     "dev": "parcel watch src/manifest.json --host localhost",
     "build": "parcel build src/manifest.json",
