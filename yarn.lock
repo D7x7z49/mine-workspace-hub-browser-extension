@@ -2511,6 +2511,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-icons@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "@radix-ui/react-icons@npm:1.3.1"
+  peerDependencies:
+    react: ^16.x || ^17.x || ^18.x || ^19.x
+  checksum: 10c0/91910d1c561b674e744be2bffb6ab3bce432ed54f9654c577daef5de62055930f6435701dc8ac41465e596585206c45f3853736ed1161f5fed02875d7ae17339
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-id@npm:1.1.0":
   version: 1.1.0
   resolution: "@radix-ui/react-id@npm:1.1.0"
@@ -4434,6 +4443,13 @@ __metadata:
   version: 1.0.4
   resolution: "chrome-trace-event@npm:1.0.4"
   checksum: 10c0/3058da7a5f4934b87cf6a90ef5fb68ebc5f7d06f143ed5a4650208e5d7acae47bc03ec844b29fbf5ba7e46e8daa6acecc878f7983a4f4bb7271593da91e61ff5
+  languageName: node
+  linkType: hard
+
+"chrome-types@npm:^0.1.319":
+  version: 0.1.319
+  resolution: "chrome-types@npm:0.1.319"
+  checksum: 10c0/036d75ab88d2d9ca2b7afb2da83bcdd5b459213d96cb46174552631cbd00d804badda10ab43630bd822903cc43221b9a1080367bf74841691cac133ce41e99cc
   languageName: node
   linkType: hard
 
@@ -8233,6 +8249,9 @@ __metadata:
     "@eslint/js": "npm:^9.14.0"
     "@parcel/config-webextension": "npm:^2.12.0"
     "@parcel/core": "npm:^2.12.0"
+    "@radix-ui/colors": "npm:^3.0.0"
+    "@radix-ui/react-icons": "npm:^1.3.1"
+    "@radix-ui/react-popover": "npm:^1.1.2"
     "@radix-ui/themes": "npm:^3.1.5"
     "@testing-library/dom": "npm:^10.4.0"
     "@testing-library/jest-dom": "npm:^6.6.3"
@@ -8241,6 +8260,7 @@ __metadata:
     "@types/node": "npm:^22.9.0"
     "@types/react": "npm:^18.3.12"
     "@types/react-dom": "npm:^18.3.1"
+    chrome-types: "npm:^0.1.319"
     commitizen: "npm:^4.3.1"
     cz-conventional-changelog: "npm:^3.3.0"
     eslint: "npm:^9.14.0"

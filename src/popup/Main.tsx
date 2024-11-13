@@ -1,13 +1,28 @@
 import React from 'react';
 
-import { Text, Button, Box } from '@radix-ui/themes';
+import { Box, DropdownMenu, Flex, Grid, IconButton, Separator, TextField } from '@radix-ui/themes';
 
 const Main: React.FC = () => {
   return (
-    <Box width="320px" height="320px">
-      <Text>Hello WebExtension from Radix Themes</Text>
-      <Button>go</Button>
-    </Box>
+    <Flex direction="column" width="360px">
+      <Flex>
+        <Box>
+          <DropdownMenu.Root></DropdownMenu.Root>
+
+          <TextField.Root></TextField.Root>
+        </Box>
+        <Box>
+          <Flex>
+            <IconButton></IconButton>
+            <Separator orientation="vertical" />
+            <IconButton></IconButton>
+            <Separator orientation="vertical" />
+            <IconButton></IconButton>
+          </Flex>
+        </Box>
+      </Flex>
+      <Grid></Grid>
+    </Flex>
   );
 };
 
