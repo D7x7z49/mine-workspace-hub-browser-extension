@@ -6,7 +6,6 @@
     /* TypeScript Project Options */
     "incremental": true,
     "tsBuildInfoFile": "./.tsbuildinfo",
-    "types": ["node"],
 
     /* Language and Environment */
     "target": "ESNext",
