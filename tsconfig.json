@@ -6,6 +6,11 @@
     /* TypeScript Project Options */
     "incremental": true,
     "tsBuildInfoFile": "./.tsbuildinfo",
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ],
 
     /* Language and Environment */
     "target": "ESNext",
@@ -35,6 +40,6 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["declarations.d.ts", "src/**/*", "tests/**/*"],
+  "include": ["src/**/*", "tests/**/*"],
   "exclude": ["node_modules", "dist", "archive"]
 }
