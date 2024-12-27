@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import '@radix-ui/themes/styles.css';
+import '@workspacehub/config/translations/i18n';
 
 import { Theme } from '@radix-ui/themes';
 import Main from '@workspacehub/popup/Main';
-
-import '@workspacehub/i18n';
 
 const rootElement = document.getElementById('root') as Element;
 const root = ReactDOM.createRoot(rootElement);
