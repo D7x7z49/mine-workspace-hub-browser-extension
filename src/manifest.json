@@ -3,6 +3,7 @@
   "manifest_version": 3,
   "name": "Mine WorkspaceHub WebExtension",
   "version": "0.1.0",
+  "permissions": ["storage"],
   "icons": {
     "16": "assets/icons/icon16.png",
     "32": "assets/icons/icon32.png",
@@ -15,7 +16,7 @@
   "web_accessible_resources": [
     {
       "matches": ["chrome-extension://*/*"],
-      "resources": []
+      "resources": ["home/index.html"]
     }
   ]
 }

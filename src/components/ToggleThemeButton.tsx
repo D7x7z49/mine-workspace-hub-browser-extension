@@ -2,10 +2,11 @@ import React from 'react';
 import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
 import { IconButton, Tooltip, useThemeContext } from '@radix-ui/themes';
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
+import { useConfigStore } from '@workspacehub/config/useConfigStore';
 
 function ToggleThemeButton() {
-  const themeContext = useThemeContext();
-  const { appearance, onAppearanceChange } = themeContext;
+  const { onAppearanceChange } = useThemeContext();
+  const { theme, setAppearance } = useConfigStore();
 
   const disableAnimation = () => {
     const css = document.createElement('style');
@@ -52,13 +53,15 @@ function ToggleThemeButton() {
   const toggleTheme = useCallbackRef(() => {
     const cleanup = disableAnimation();
 
-    if (appearance === 'light' || appearance === 'dark') {
-      const newAppearance = appearance === 'light' ? 'dark' : 'light';
+    if (theme.appearance === 'light' || theme.appearance === 'dark') {
+      const newAppearance = theme.appearance === 'light' ? 'dark' : 'light';
       onAppearanceChange(newAppearance);
+      setAppearance(newAppearance);
       updateRootAppearanceClass(newAppearance);
-    } else if (appearance === 'inherit') {
+    } else if (theme.appearance === 'inherit') {
       const newAppearance = 'dark';
       onAppearanceChange(newAppearance);
+      setAppearance(newAppearance);
       updateRootAppearanceClass(newAppearance);
     }
 
@@ -68,7 +71,7 @@ function ToggleThemeButton() {
   return (
     <Tooltip content="Toggle theme">
       <IconButton radius="full" onClick={toggleTheme}>
-        {appearance === 'dark' ? <MoonIcon /> : <SunIcon />}
+        {theme.appearance === 'dark' ? <MoonIcon /> : <SunIcon />}
       </IconButton>
     </Tooltip>
   );

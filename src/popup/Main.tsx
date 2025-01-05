@@ -1,3 +1,5 @@
+// src/popup/Main.tsx
+
 import React from 'react';
 // import { useTranslation } from 'react-i18next';
 
@@ -12,6 +14,7 @@ import {
   TooltipIconButtonProps,
 } from '@workspacehub/components/ToggleGroupComponent';
 import ToggleThemeButton from '@workspacehub/components/ToggleThemeButton';
+import { openExtensionPage } from '@workspacehub/utils/navigation';
 
 const Main: React.FC = () => {
   // const { t } = useTranslation();
@@ -22,7 +25,9 @@ const Main: React.FC = () => {
       tooltipContent: 'Go to Home',
       typeButton: {
         id: 'navigation',
-        onClick: () => alert('Home clicked'),
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
       },
     },
     {
