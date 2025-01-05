@@ -1,0 +1,45 @@
+{
+  "ts-node": {
+    "esm": true
+  },
+  "compilerOptions": {
+    /* TypeScript Project Options */
+    "incremental": true,
+    "tsBuildInfoFile": "./.tsbuildinfo",
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ],
+
+    /* Language and Environment */
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@workspacehub/*": ["src/*"]
+    },
+
+    /* JavaScript Interoperability */
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    /* File Handling */
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+
+    /* Code Consistency */
+    "forceConsistentCasingInFileNames": true,
+
+    /* Type Checking */
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*", "tests/**/*"],
+  "exclude": ["node_modules", "dist", "archive"]
+}

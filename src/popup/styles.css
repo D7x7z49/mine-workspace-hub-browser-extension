@@ -1,0 +1,15 @@
+/* styles.css */
+
+html,
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+#root {
+  width: 320px;
+  height: 480px;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: var(--color-background);
+}

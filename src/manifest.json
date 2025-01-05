@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/chrome-manifest",
+  "manifest_version": 3,
+  "name": "Mine WorkspaceHub WebExtension",
+  "version": "0.1.0",
+  "permissions": ["storage"],
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "./popup/index.html"
+  },
+  "web_accessible_resources": [
+    {
+      "matches": ["chrome-extension://*/*"],
+      "resources": ["home/index.html"]
+    }
+  ]
+}

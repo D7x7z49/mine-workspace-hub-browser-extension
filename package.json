@@ -1,0 +1,92 @@
+{
+  "name": "mine-workspace-hub-browser-extension",
+  "type": "module",
+  "packageManager": "yarn@4.5.1",
+  "scripts": {
+    "prepare": "husky",
+    "type-check": "tsc --noEmit",
+    "commit": "cz",
+    "i18n:extract": "i18next",
+    "clean": "parcel clean",
+    "dev": "parcel watch src/manifest.json --host localhost",
+    "build": "parcel build src/manifest.json",
+    "build:analyze": "parcel build src/manifest.json --analyze",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "format": "yarn lint:fix && yarn prettier:fix",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:clear-cache": "jest --clearCache",
+    "test:update-snapshots": "jest --updateSnapshot"
+  },
+  "staticFiles": [
+    {
+      "staticPath": "public",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  ],
+  "@parcel/transformer-css": {
+    "cssModules": {
+      "dashedIdents": true
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@eslint/compat": "^1.2.2",
+    "@eslint/js": "^9.14.0",
+    "@parcel/config-webextension": "^2.12.0",
+    "@parcel/core": "^2.12.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
+    "@types/chrome": "^0.0.284",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.9.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "chrome-types": "^0.1.319",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.14.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jest": "^28.9.0",
+    "eslint-plugin-react": "^7.37.2",
+    "globals": "^15.12.0",
+    "husky": "^9.1.6",
+    "i18next-parser": "^9.0.2",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "lint-staged": "^15.2.10",
+    "parcel": "^2.12.0",
+    "parcel-reporter-static-files-copy": "^1.5.3",
+    "postcss": "^8.0.0",
+    "postcss-modules": "^4.3.0",
+    "prettier": "^3.3.3",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.17",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.13.0",
+    "typescript-plugin-css-modules": "^5.1.0"
+  },
+  "dependencies": {
+    "@radix-ui/colors": "^3.0.0",
+    "@radix-ui/react-icons": "^1.3.1",
+    "@radix-ui/react-popover": "^1.1.2",
+    "@radix-ui/themes": "^3.1.5",
+    "i18next": "^23.16.5",
+    "i18next-browser-languagedetector": "^8.0.0",
+    "i18next-http-backend": "^2.6.2",
+    "immer": "^10.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^15.1.1",
+    "zustand": "^5.0.2"
+  }
+}
