@@ -12,7 +12,7 @@ export const useInitialTheme = (): MineTheme | null => {
     };
 
     fetchThemeConfig();
-  }, [initialTheme, theme]);
+  }, []);
 
   return initialTheme;
 };
