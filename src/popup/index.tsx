@@ -11,21 +11,17 @@ import '@workspacehub/config/translations/i18n';
 
 import Main from '@workspacehub/popup/Main';
 import { useConfigStore } from '@workspacehub/config/useConfigStore';
-import ErrorBoundary from './ErrorBoundary';
+import { GlobalErrorBoundary } from '@workspacehub/components/error/GlobalErrorBoundary';
 
 const Popup = () => {
   const { theme } = useConfigStore();
-  // chrome.storage.local.remove('config-storage', () => {
-  //   console.log('Config storage removed using chrome.storage.local!');
-  // });
-  // const mineTheme = createTheme({
-  //   ...theme
-  // })
 
   return (
-    <MantineProvider theme={theme}>
-      <Main />
-    </MantineProvider>
+    <GlobalErrorBoundary>
+      <MantineProvider theme={theme}>
+        <Main />
+      </MantineProvider>
+    </GlobalErrorBoundary>
   );
 };
 
@@ -34,8 +30,6 @@ const root = ReactDOM.createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
-    <ErrorBoundary>
-      <Popup />
-    </ErrorBoundary>
+    <Popup />
   </React.StrictMode>,
 );
