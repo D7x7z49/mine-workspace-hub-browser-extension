@@ -1,44 +1,155 @@
-// src/popup/Main.tsx
-
 import React from 'react';
 // import { useTranslation } from 'react-i18next';
 
-import { Button, Flex, Stack, useMantineColorScheme } from '@mantine/core';
-import { useConfigStore } from '@workspacehub/config/useConfigStore';
+import { AppShell, Burger, Center, Flex, ScrollArea, Skeleton, Stack } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
+
+import ToggleColorSchemeButton from '@workspacehub/components/ToggleColorSchemeButton';
+import IconButtonGrid from '@workspacehub/components/IconButtonGrid';
+import { IconHome } from '@tabler/icons-react';
+import { openExtensionPage } from '@workspacehub/utils/navigation';
+
+const popupIconsGridData = [
+  {
+    label: 'navbar',
+    icons: [
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+    ],
+  },
+  {
+    label: 'navbar',
+    icons: [
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+    ],
+  },
+];
 
 const Main: React.FC = () => {
-  const { setColorScheme } = useMantineColorScheme();
-  const { theme, resetTheme, throwError } = useConfigStore();
+  const [navbarOpened, { toggle: toggleNavbar }] = useDisclosure();
 
   return (
-    <Stack h={300} bg="var(--mantine-color-body)" align="stretch" justify="flex-start" gap="md">
-      <Flex mih={50} bg="rgba(0, 0, 0, .3)" gap="md" justify="center" align="center" direction="row" wrap="wrap">
-        <Button onClick={() => setColorScheme('light')}>Light</Button>
-        <Button onClick={() => setColorScheme('dark')}>Dark</Button>
-        <Button
-          onClick={() => {
-            console.log(theme);
-          }}>
-          Button 3
-        </Button>
-        <Button
-          onClick={() => {
-            resetTheme();
-            console.log(theme);
-          }}>
-          Button 3
-        </Button>
-        <Button
-          onClick={() => {
-            throwError();
-            console.log(theme);
-          }}>
-          Error
-        </Button>
-      </Flex>
-      <Button variant="default">2</Button>
-      <Button variant="default">3</Button>
-    </Stack>
+    <AppShell
+      header={{ height: '3rem' }}
+      footer={{ height: '2rem' }}
+      navbar={{
+        width: 100,
+        breakpoint: 'sm',
+        collapsed: {
+          mobile: !navbarOpened,
+        },
+      }}>
+      <AppShell.Header>
+        <Flex h="100%" px="md" gap="md" justify="space-between" align="center" direction="row" wrap="wrap">
+          <Burger opened={navbarOpened} onClick={toggleNavbar} hiddenFrom="sm" size="sm" />
+          <Flex gap="md" justify="space-around" align="center">
+            <ToggleColorSchemeButton />
+          </Flex>
+        </Flex>
+      </AppShell.Header>
+      <AppShell.Navbar>
+        <AppShell.Section>
+          <Center>History</Center>
+        </AppShell.Section>
+        <AppShell.Section p="sm" grow component={ScrollArea}>
+          {Array(15)
+            .fill(0)
+            .map((_, index) => (
+              <Skeleton key={index} h={28} mt="sm" animate={false} />
+            ))}
+        </AppShell.Section>
+      </AppShell.Navbar>
+      <AppShell.Main>
+        <Stack p="sm" bg="var(--mantine-color-body)" align="stretch" justify="space-around" gap="md">
+          {popupIconsGridData.map((value, index) => (
+            <IconButtonGrid key={index} cols={5} label={value.label} icons={value.icons} />
+          ))}
+        </Stack>
+      </AppShell.Main>
+      <AppShell.Aside></AppShell.Aside>
+      <AppShell.Footer></AppShell.Footer>
+    </AppShell>
   );
 };
 
