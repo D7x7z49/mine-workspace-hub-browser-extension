@@ -1,127 +1,155 @@
-// src/popup/Main.tsx
-
 import React from 'react';
 // import { useTranslation } from 'react-i18next';
 
-import { Box, Flex, Heading, ScrollArea } from '@radix-ui/themes';
+import { AppShell, Burger, Center, Flex, ScrollArea, Skeleton, Stack } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 
-import { BookmarkIcon, CounterClockwiseClockIcon, GearIcon, HomeIcon } from '@radix-ui/react-icons';
-
-import * as styles from '@workspacehub/popup/popup.module.css';
-import {
-  FlexToggleGroupComponent,
-  GridToggleGroupComponent,
-  TooltipIconButtonProps,
-} from '@workspacehub/components/ToggleGroupComponent';
-import ToggleThemeButton from '@workspacehub/components/ToggleThemeButton';
+import ToggleColorSchemeButton from '@workspacehub/components/ToggleColorSchemeButton';
+import IconButtonGrid from '@workspacehub/components/IconButtonGrid';
+import { IconHome } from '@tabler/icons-react';
 import { openExtensionPage } from '@workspacehub/utils/navigation';
 
-const Main: React.FC = () => {
-  // const { t } = useTranslation();
-
-  const navButtons: TooltipIconButtonProps[] = [
-    {
-      icon: <HomeIcon />,
-      tooltipContent: 'Go to Home',
-      typeButton: {
-        id: 'navigation',
+const popupIconsGridData = [
+  {
+    label: 'navbar',
+    icons: [
+      {
+        label: 'home',
+        icon: IconHome,
         onClick: async () => {
           await openExtensionPage('home/index.html');
         },
       },
-    },
-    {
-      icon: <BookmarkIcon />,
-      tooltipContent: 'Go to Home',
-      typeButton: {
-        id: 'navigation',
-        onClick: () => alert('Home clicked'),
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
       },
-    },
-    {
-      icon: <CounterClockwiseClockIcon />,
-      tooltipContent: 'Open Settings',
-      typeButton: {
-        id: 'navigation',
-        onClick: () => alert('Settings clicked'),
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
       },
-    },
-    {
-      icon: <GearIcon />,
-      tooltipContent: 'Go to Home',
-      typeButton: {
-        id: 'navigation',
-        onClick: () => alert('Home clicked'),
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
       },
-    },
-  ];
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+    ],
+  },
+  {
+    label: 'navbar',
+    icons: [
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+      {
+        label: 'home',
+        icon: IconHome,
+        onClick: async () => {
+          await openExtensionPage('home/index.html');
+        },
+      },
+    ],
+  },
+];
 
-  const toolButtons: TooltipIconButtonProps[] = [
-    {
-      icon: <HomeIcon />,
-      tooltipContent: 'Go to Home',
-      typeButton: {
-        id: 'dialog',
-        content: (
-          <Flex direction="column" gap="2">
-            <Box>Popover content</Box>
-            <Box>Popover content</Box>
-            <Box>Popover content</Box>
-          </Flex>
-        ),
-      },
-    },
-    {
-      icon: <GearIcon />,
-      tooltipContent: 'Open Settings',
-      typeButton: {
-        id: 'popover',
-        content: (
-          <Flex direction="column" gap="2">
-            <Box>Popover content</Box>
-            <Box>Popover content</Box>
-            <Box>Popover content</Box>
-          </Flex>
-        ),
-      },
-    },
-  ];
+const Main: React.FC = () => {
+  const [navbarOpened, { toggle: toggleNavbar }] = useDisclosure();
 
   return (
-    <Flex
-      height="98vh"
-      direction="column"
-      gap="3"
-      overflow="hidden"
-      className={styles.popupContainer}
-      style={{
-        background: 'var(--gray-a2)',
-        borderTop: '1px dashed var(--gray-a7)',
-        borderBottom: '1px dashed var(--gray-a7)',
+    <AppShell
+      header={{ height: '3rem' }}
+      footer={{ height: '2rem' }}
+      navbar={{
+        width: 100,
+        breakpoint: 'sm',
+        collapsed: {
+          mobile: !navbarOpened,
+        },
       }}>
-      <Flex height="12vh" direction="column" align="center" justify="center" className={styles.popupHeader}>
-        <Heading align="center">Mine WorkspaceHub</Heading>
-      </Flex>
-
-      <Flex justify="between" align="center" className={styles.popupNavigation}>
-        <FlexToggleGroupComponent buttons={navButtons} separator />
-        <Flex justify="center" align="center" width="64px" height="64px">
-          <ToggleThemeButton />
+      <AppShell.Header>
+        <Flex h="100%" px="md" gap="md" justify="space-between" align="center" direction="row" wrap="wrap">
+          <Burger opened={navbarOpened} onClick={toggleNavbar} hiddenFrom="sm" size="sm" />
+          <Flex gap="md" justify="space-around" align="center">
+            <ToggleColorSchemeButton />
+          </Flex>
         </Flex>
-      </Flex>
-
-      <Flex direction="column" align="center" justify="center" className={styles.popupTools}>
-        <GridToggleGroupComponent buttons={toolButtons} columns="7" />
-      </Flex>
-
-      <Flex direction="column" align="center" justify="center" className={styles.popupRecents}>
-        <ScrollArea type="always" scrollbars="vertical">
-          <Box p="2" pr="8">
-            xxxxxxxxxxxxxxxxx
-          </Box>
-        </ScrollArea>
-      </Flex>
-    </Flex>
+      </AppShell.Header>
+      <AppShell.Navbar>
+        <AppShell.Section>
+          <Center>History</Center>
+        </AppShell.Section>
+        <AppShell.Section p="sm" grow component={ScrollArea}>
+          {Array(15)
+            .fill(0)
+            .map((_, index) => (
+              <Skeleton key={index} h={28} mt="sm" animate={false} />
+            ))}
+        </AppShell.Section>
+      </AppShell.Navbar>
+      <AppShell.Main>
+        <Stack p="sm" bg="var(--mantine-color-body)" align="stretch" justify="space-around" gap="md">
+          {popupIconsGridData.map((value, index) => (
+            <IconButtonGrid key={index} cols={5} label={value.label} icons={value.icons} />
+          ))}
+        </Stack>
+      </AppShell.Main>
+      <AppShell.Aside></AppShell.Aside>
+      <AppShell.Footer></AppShell.Footer>
+    </AppShell>
   );
 };
 

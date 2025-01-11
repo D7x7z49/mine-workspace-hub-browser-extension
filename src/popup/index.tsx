@@ -1,34 +1,27 @@
 // src/popup/index.tsx
 
-import '@workspacehub/popup/styles.css';
-import '@radix-ui/themes/styles.css';
+// import '@workspacehub/popup/styles.css';
+import '@mantine/core/styles.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Theme } from '@radix-ui/themes';
+import { MantineProvider } from '@mantine/core';
 
 import '@workspacehub/config/translations/i18n';
 
 import Main from '@workspacehub/popup/Main';
-import { useInitialTheme } from '@workspacehub/hooks/useInitialTheme';
+import { useConfigStore } from '@workspacehub/config/useConfigStore';
+import { GlobalErrorBoundary } from '@workspacehub/components/error/GlobalErrorBoundary';
 
 const Popup = () => {
-  const initialTheme = useInitialTheme();
-
-  if (!initialTheme) {
-    return <div>Loading...</div>;
-  }
+  const { theme } = useConfigStore();
 
   return (
-    <Theme
-      appearance={initialTheme.appearance}
-      accentColor={initialTheme.accentColor}
-      grayColor={initialTheme.grayColor}
-      panelBackground={initialTheme.panelBackground}
-      radius={initialTheme.radius}
-      scaling={initialTheme.scaling}>
-      <Main />
-    </Theme>
+    <GlobalErrorBoundary>
+      <MantineProvider theme={theme}>
+        <Main />
+      </MantineProvider>
+    </GlobalErrorBoundary>
   );
 };
 
