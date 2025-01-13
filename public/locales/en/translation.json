@@ -1,5 +1,0 @@
-{
-  "popup": {
-    "test": "hello {{user_name}}"
-  }
-}
