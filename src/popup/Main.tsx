@@ -1,12 +1,13 @@
 import React from 'react';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import { AppShell, Burger, Center, Flex, ScrollArea, Skeleton, Stack } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
+import { IconHome } from '@tabler/icons-react';
 
 import ToggleColorSchemeButton from '@workspacehub/components/ToggleColorSchemeButton';
 import IconButtonGrid from '@workspacehub/components/IconButtonGrid';
-import { IconHome } from '@tabler/icons-react';
+
 import { openExtensionPage } from '@workspacehub/utils/navigation';
 
 const popupIconsGridData = [
@@ -107,6 +108,8 @@ const popupIconsGridData = [
 ];
 
 const Main: React.FC = () => {
+  const { t } = useTranslation();
+
   const [navbarOpened, { toggle: toggleNavbar }] = useDisclosure();
 
   return (
@@ -122,7 +125,14 @@ const Main: React.FC = () => {
       }}>
       <AppShell.Header>
         <Flex h="100%" px="md" gap="md" justify="space-between" align="center" direction="row" wrap="wrap">
-          <Burger opened={navbarOpened} onClick={toggleNavbar} hiddenFrom="sm" size="sm" />
+          <Burger
+            aria-label={t('page:popup.navbarButton', 'open home navbar')}
+            aria-expanded={navbarOpened}
+            opened={navbarOpened}
+            onClick={toggleNavbar}
+            hiddenFrom="sm"
+            size="sm"
+          />
           <Flex gap="md" justify="space-around" align="center">
             <ToggleColorSchemeButton />
           </Flex>

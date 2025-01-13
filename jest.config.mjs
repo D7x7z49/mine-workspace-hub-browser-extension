@@ -18,9 +18,11 @@ export default {
   testPathIgnorePatterns: [
     '<rootDir>/.husky/',
     '<rootDir>/.parcel-cache/',
+    '<rootDir>/.yarn/',
     '<rootDir>/archive/',
-    '<rootDir>/node_modules/',
     '<rootDir>/dist/',
     '<rootDir>/docs/',
+    '<rootDir>/node_modules/',
+    '<rootDir>/public/',
   ],
 };

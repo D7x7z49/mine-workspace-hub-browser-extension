@@ -7,7 +7,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { MantineProvider } from '@mantine/core';
 
-import '@workspacehub/config/translations/i18n';
+import '@workspacehub/config/i18n/init';
 
 import Main from '@workspacehub/home/Main';
 import { useConfigStore } from '@workspacehub/config/useConfigStore';

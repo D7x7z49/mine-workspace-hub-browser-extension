@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { AppShell, Burger, Group, Skeleton } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
 const Main: React.FC = () => {
+  const { t } = useTranslation();
+
   const [opened, { toggle }] = useDisclosure();
 
   return (
@@ -14,7 +17,14 @@ const Main: React.FC = () => {
       padding="md">
       <AppShell.Header>
         <Group h="100%" px="md">
-          <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+          <Burger
+            aria-label={t('page:home.aria-label.navbarButton', 'open home navbar')}
+            aria-expanded={opened}
+            opened={opened}
+            onClick={toggle}
+            hiddenFrom="sm"
+            size="sm"
+          />
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p="md">
