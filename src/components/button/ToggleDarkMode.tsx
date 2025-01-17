@@ -2,7 +2,7 @@ import React from 'react';
 import { ActionIcon, useMantineColorScheme, useComputedColorScheme } from '@mantine/core';
 import { IconSun, IconMoon } from '@tabler/icons-react';
 
-const ToggleColorSchemeButton: React.FC = () => {
+const ToggleDarkMode: React.FC = () => {
   const { setColorScheme } = useMantineColorScheme();
   const computedColorScheme = useComputedColorScheme('light', { getInitialValueInEffect: true });
 
@@ -16,4 +16,4 @@ const ToggleColorSchemeButton: React.FC = () => {
   );
 };
 
-export default ToggleColorSchemeButton;
+export default ToggleDarkMode;
