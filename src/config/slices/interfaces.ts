@@ -60,7 +60,8 @@ export type LayoutSlice = LayoutState & LayoutActions;
 /**
  * WorkspaceSlice
  */
-export type WorkspaceMode = 'default' | 'history' | 'bookmark' | 'note';
+export const workspaceModes = ['default', 'history', 'bookmark', 'note'] as const;
+export type WorkspaceMode = (typeof workspaceModes)[number];
 
 export interface WorkspaceState {
   workspace: WorkspaceMode;
