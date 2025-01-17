@@ -5,7 +5,7 @@ import { AppShell, Burger, Center, Flex, ScrollArea, Skeleton, Stack } from '@ma
 import { useDisclosure } from '@mantine/hooks';
 import { IconHome } from '@tabler/icons-react';
 
-import ToggleColorSchemeButton from '@workspacehub/components/ToggleColorSchemeButton';
+import ToggleDarkMode from '@workspacehub/components/button/ToggleDarkMode';
 import IconButtonGrid from '@workspacehub/components/IconButtonGrid';
 
 import { openExtensionPage } from '@workspacehub/utils/navigation';
@@ -134,7 +134,7 @@ const Main: React.FC = () => {
             size="sm"
           />
           <Flex gap="md" justify="space-around" align="center">
-            <ToggleColorSchemeButton />
+            <ToggleDarkMode />
           </Flex>
         </Flex>
       </AppShell.Header>

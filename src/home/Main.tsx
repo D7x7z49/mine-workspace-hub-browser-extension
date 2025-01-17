@@ -1,43 +1,54 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { AppShell, Burger, Group, Skeleton } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
+import { AppShell } from '@mantine/core';
+import PageHeader from '@workspacehub/components/PageHeader';
+import PageFooter from '@workspacehub/components/PageFooter';
+import { useConfigStore } from '@workspacehub/config/useConfigStore';
+import PageNavbar from '@workspacehub/components/PageNavbar';
+import PageAside from '@workspacehub/components/PageAside';
+import PageMain from '@workspacehub/components/PageMain';
 
 const Main: React.FC = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { t } = useTranslation();
 
-  const [opened, { toggle }] = useDisclosure();
+  const workspaceState = useConfigStore.use.workspace();
+  const navbar = useConfigStore.use.navbar();
+  const aside = useConfigStore.use.aside();
+
+  // const [opened, { toggle }] = useDisclosure();
 
   return (
     <AppShell
-      header={{ height: 60 }}
-      footer={{ height: 60 }}
-      navbar={{ width: 300, breakpoint: 'sm', collapsed: { mobile: !opened } }}
-      aside={{ width: 300, breakpoint: 'md', collapsed: { desktop: false, mobile: true } }}
-      padding="md">
+      header={{
+        height: 'calc(3rem + 1.2vh)',
+        offset: true,
+      }}
+      footer={{
+        height: 'calc(2rem + 0.5vh)',
+        offset: true,
+      }}
+      navbar={{
+        width: 'calc(12rem + 8vw)',
+        collapsed: { mobile: true, desktop: !navbar.opened },
+        breakpoint: 'sm',
+      }}
+      aside={{
+        width: 'calc(8rem + 6vw)',
+        collapsed: { mobile: true, desktop: !aside.opened },
+        breakpoint: 'sm',
+      }}
+      // withBorder={false}
+    >
       <AppShell.Header>
-        <Group h="100%" px="md">
-          <Burger
-            aria-label={t('page:home.aria-label.navbarButton', 'open home navbar')}
-            aria-expanded={opened}
-            opened={opened}
-            onClick={toggle}
-            hiddenFrom="sm"
-            size="sm"
-          />
-        </Group>
+        <PageHeader />
       </AppShell.Header>
-      <AppShell.Navbar p="md">
-        Navbar
-        {Array(15)
-          .fill(0)
-          .map((_, index) => (
-            <Skeleton key={index} h={28} mt="sm" animate={false} />
-          ))}
-      </AppShell.Navbar>
-      <AppShell.Main>Aside is hidden on on md breakpoint and cannot be opened when it is collapsed</AppShell.Main>
-      <AppShell.Aside p="md">Aside</AppShell.Aside>
-      <AppShell.Footer p="md">Footer</AppShell.Footer>
+      <AppShell.Navbar>{<PageNavbar workspace={workspaceState} />}</AppShell.Navbar>
+      <AppShell.Main>{<PageMain workspace={workspaceState} />}</AppShell.Main>
+      <AppShell.Aside>{<PageAside workspace={workspaceState} />}</AppShell.Aside>
+      <AppShell.Footer>
+        <PageFooter />
+      </AppShell.Footer>
     </AppShell>
   );
 };

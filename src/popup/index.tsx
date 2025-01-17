@@ -14,7 +14,7 @@ import { useConfigStore } from '@workspacehub/config/useConfigStore';
 import { GlobalErrorBoundary } from '@workspacehub/components/error/GlobalErrorBoundary';
 
 const Popup = () => {
-  const { theme } = useConfigStore();
+  const theme = useConfigStore.use.theme();
 
   return (
     <GlobalErrorBoundary>
